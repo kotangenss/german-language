@@ -1,0 +1,1118 @@
+@import "variables";
+@import "mixins";
+
+html {
+   scroll-behavior: smooth;
+}
+
+body {
+   height: 100%;
+   background: #F3F3F3;
+   line-height: 1;
+   font-size: $contentFontSize;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 300;
+}
+
+.wrapper {
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+
+   // min-width: 0;
+}
+
+.container {
+   padding: 0px 15px;
+   max-width: 1216px;
+   margin: 0 auto;
+   box-sizing: content-box;
+   position: relative;
+
+      &::before {
+         content: '';
+         position: absolute;
+         height: 100%;
+         width: 1px;
+         background: $colorBlack;
+         opacity: 0.05;
+         right: 0;
+         margin-top: -30px;
+         margin-right: 15px;
+      }
+   
+      &::after {
+         content: '';
+         position: absolute;
+         height: 30%;
+         width: 1px;
+         background: $colorBlack;
+         opacity: 0.05;
+         right: 27%;
+         margin-top: -60px;
+         z-index: -1;
+      }
+}
+
+//-----------------------------> Header
+
+.header__container {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-top: 30px;
+}
+
+.header__logo,
+.footer__logo {
+   font-family: $familyCormorantGaramond;
+   font-weight: 700;
+   font-size: 30px;
+   display: flex;
+   align-items: center;
+   font-feature-settings: 'tnum' on, 'lnum' on;
+   color: $colorBlack;
+   position: relative;
+   z-index: 1;
+
+   span {
+      color: $accentColorRed;
+   }
+}
+
+.header__logo-before,
+.footer__logo-before {
+   &::before {
+      content: '';
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: $accentColorRed;
+      position: absolute;
+      top: 15px;
+      left: 81px;
+      z-index: -1;
+   }
+}
+
+.header__number-phone {
+   @include fontSubTitle();
+   position: relative;
+   transition: $transition;
+   z-index: 10;
+
+   &::before {
+      content: '';
+      position: absolute;
+      background: url('../assets/svg/arrow-header.svg') no-repeat;
+      width: 41px;
+      height: 7px;
+      top: 8px;
+      right: 165px;
+      transition: $transition;
+   };
+
+   &:hover {
+      color: $accentColorRed;
+      transition: $transition;
+   }
+}
+
+//-----------------------------> Welcome
+
+.welcome {
+   margin-top: -50px;
+   margin-bottom: -40px;
+}
+
+.welcome__container,
+.welcome__numbers {
+   display: flex;
+}
+
+.welcome__image {
+   position: relative;
+
+   &::before {
+      content: '';
+      position: absolute;
+      background: url('../assets/png/welcome-bg.png') no-repeat;
+      width: 794px;
+      height: 908px;
+      z-index: -1;
+      bottom: 6.6em;
+      left: -4em;
+   }
+}
+
+.welcome h1 {
+   @include fontTitle(130px);
+   position: relative;
+
+   &::before {
+      content: 'с нуля';
+      position: absolute;
+      background: $colorYellow;
+      width: 110px;
+      font-family: $familyCormorantGaramond;
+      font-size: 27px;
+      font-weight: 700;
+      line-height: 180%;
+      text-transform: lowercase;
+      transform: rotate(-15deg);
+      bottom: 0.3em;
+      right: 4.7em;
+   }
+
+   &::after {
+      content: '';
+      position: absolute;
+      background: url('../assets/png/flag.png') 71% -20% no-repeat;
+      width: 50px;
+      height: 80px;
+      transform: rotate(-15deg);
+      bottom: 0.4em;
+      right: 0.86em;
+   }
+}
+
+.welcome__info {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   margin-left: -30px;
+}
+
+.welcome__info a {
+   margin: -10px 0px -50px;
+}
+
+.button {
+   @include button();
+}
+
+.welcome__numbers p,
+#number-750 {
+   font-family: $familyCormorantGaramond;
+   font-weight: 300;
+   font-size: 194px;
+   font-feature-settings: 'pnum' on, 'lnum' on;
+   color: $accentColorRed;
+   user-select: none;
+}
+
+#number-10 {
+   position: relative;
+   margin-right: 164px;
+
+   &::before {
+      content: 'лет обучаем языкам';
+      position: absolute;
+      width: 135px;
+      background-color: $colorGray;
+      padding: 10px 10px;
+      top: -20px;
+      left: 120px;
+
+      @include fontContent(center);
+   }
+}
+
+#number-20 {
+   position: relative;
+   margin-right: 64px;
+
+   &::before {
+      content: 'опытных педагогов';
+      position: absolute;
+      width: 135px;
+      background-color: $colorGray;
+      padding: 10px 10px;
+      top: -20px;
+      left: 120px;
+
+      @include fontContent(center);
+   }
+}
+
+
+//-----------------------------> Advantage
+
+.advantage {
+   position: relative;
+
+   h2 {
+   margin: -18% 0px 40px -12%;
+   }
+
+   &::before {
+      content: '';
+      position: absolute;
+      background: url('../assets/png/advantages-map.png') no-repeat;
+      width: 410px;
+      height: 557px;
+      bottom: -15%;
+      right: 0;
+   }
+}
+
+.advantage__image {
+   position: relative;  
+   right: -70%;
+
+   &::before {
+      content: '';
+      position: absolute;
+      height: 150px;
+      width: 150px;
+      background: url('../assets/svg/advantages-red-elipse.svg') no-repeat;
+      top: 65%;
+      left: 13%;
+      animation: rotate 10s infinite linear;
+   }
+
+   &::after {
+      content: '';
+      position: absolute;
+      height: 314px;
+      width: 447px;
+      background: url('../assets/png/advantages-books.png') no-repeat;
+      top: 3%;
+      right: 56%;
+   }
+}
+
+h2 {
+   @include fontTitle();
+}
+
+.item-advantage__number {
+   @include fontTitle();
+   margin: 4px 15px 0px 0px;
+   position: relative;
+
+   &::before {
+      position: absolute;
+      content: '';
+      @include redElipse();
+      z-index: -1;
+      top: 22.5%;
+      right: 37%;
+   }
+}
+
+.advantages__items {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.item-advantage:not(:last-child) {
+   margin-right: 50px;
+}
+
+.item-advantage:first-child {
+   margin-left: 18%;
+   position: relative;
+
+   &::before {
+      content: '';
+      position: absolute;
+      background: url('../assets/svg/advantages-wawes.svg') no-repeat;
+      width: 115px;
+      height: 61px;
+      right: 34em;
+      top: 8em;
+   }
+}
+
+.item-advantage {
+   display: flex;
+   width: 20em;
+   margin-bottom: 10px;
+}
+
+.content-item {
+   display: flex;
+   flex-direction: column;
+}
+
+.content-item__title {
+   @include fontTitle($contentFontSize, 700, left, 140%);
+   margin-bottom: 0px
+}
+
+.content-item__info {
+   @include fontContent();
+}
+
+
+
+
+@keyframes rotate {
+   0% {
+      transform: rotate(0deg);
+   }
+
+   100% {
+      transform: rotate(360deg);
+   }
+}
+
+//-----------------------------> Programs
+
+.programs {
+   padding: 50px 0px;
+
+   h2 {
+      @include fontTitle();
+      position: relative;
+      margin-bottom: 0px;
+   }
+}
+
+.programs__head {
+   display: flex;
+}
+
+.programs__head-image {
+   margin-left: -30%;
+   position: relative;
+
+   &::before {
+      content: '';
+      position: absolute;
+      background: url('../assets/svg/programs-elipse.svg') no-repeat;
+      width: 331px;
+      height: 322px;
+      animation: rotate 10s infinite linear;
+      top: 16%;
+      left: 50%;
+   }
+
+   &::after {
+      content: '';
+      position: absolute;
+      background: url('../assets/png/programs-mark.png') no-repeat;
+      width: 458px;
+      height: 447px;
+      top: -30%;
+      right: -17%;
+   }
+
+   img {
+      width: 776px;
+      height: 300px;
+   }
+}
+
+.table {
+   margin-top: 70px;
+   display: flex;
+   position: relative;
+
+   &::before {
+      content: '';
+      position: absolute;
+      background: url('../assets/svg/advantages-wawes.svg') no-repeat;
+      width: 115px;
+      height: 61px;
+      top: 50%;
+      right: -4.5%;
+   }
+}
+
+.level {
+   display: flex;
+   flex-direction: column;
+   background: $colorYellow;
+   padding: 60px 28px;
+   @include fontSubTitle();
+   transition: $transition;
+
+   &:not(:last-child) {
+      border-bottom: 1px solid $colorBlack;
+   }
+
+   &:hover {
+      cursor: pointer;
+      color: $colorWhite;
+      background: $accentColorRed;
+      transition: $transition;
+   }
+
+   &:active {
+      background: #bb081d;
+   }
+}
+
+.active-level {
+   color: $colorWhite;
+   background: $accentColorRed;
+   transition: $transition;
+}
+
+.table__body {
+   display: flex;
+}
+
+.a2,
+.b1,
+.b2,
+.c1,
+.c2 {
+   display: none;
+}
+
+.table__grammar {
+   background: $colorWhite;
+   padding: 48px 45px 29px;
+}
+
+.info__grammar {
+   margin-top: 18px;
+
+   p {
+      padding: 14px 0px;
+      margin: 0px;
+      @include fontContent($fontSize: 16px);
+      transition: $transition;
+
+      &:not(:last-child) {
+         border-bottom: 1px solid $colorBlack;
+      }
+
+      &:hover {
+         background: $colorGray;
+         transition: $transition;
+      }
+   }
+}
+
+.table__description {
+   background: $colorYellow;
+   padding: 48px 45px 45px;
+   max-width: 383px;
+}
+
+.description {
+   a {
+      @include button($colorWhite);
+   }
+}
+
+.description__body {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   height: 95%;
+}
+
+.description__goal {
+   p {
+      position: relative;
+      margin-left: 30px;
+      @include fontContent($fontSize: 16px);
+
+
+      &::before {
+         content: '';
+         position: absolute;
+         background: url('../assets/svg/programs-flag-elipse.svg') no-repeat;
+         width: 20px;
+         height: 20px;
+         top: 5px;
+         left: -30px;
+      }
+
+      &:not(:last-child) {
+         margin-bottom: 20px;
+      }
+   }
+}
+
+.price {
+   background: $colorWhite;
+   padding: 15px 15px 15px 35px;
+   margin-right: -45px;
+}
+
+.price__group {
+   margin-bottom: 30px;
+}
+
+//-----------------------------> Trial lesson
+
+.trial-lesson {
+   padding: 100px 0px 150px;
+   position: relative;
+
+   h2 {
+      position: relative;
+      margin: 0px 0px -6px -220px;
+      
+      &::before {
+         content: 'бесплатно';
+         position: absolute;
+         background: $colorYellow;
+         width: 155px;
+         font-family: $familyCormorantGaramond;
+         font-size: 27px;
+         font-weight: 700;
+         line-height: 180%;
+         text-transform: lowercase;
+         transform: rotate(-15deg);
+         bottom: -0.7em;
+         right: 4.7em;
+      }
+   
+      &::after {
+         content: '';
+         position: absolute;
+         background: url('../assets/png/flag.png') 71% -20% no-repeat;
+         width: 50px;
+         height: 80px;
+         transform: rotate(-15deg);
+         bottom: 0.35em;
+         right: 1.15em;
+      }
+   }
+
+   h3 {
+      @include fontTitle($contentFontSize, 700, left, 140%);
+      margin-bottom: 30px;
+      margin-left: 250px;
+   }
+}
+
+.trial-lesson__container {
+   position: relative;
+
+   &::before {
+      content: '';
+      position: absolute;
+      height: 250%;
+      width: 1px;
+      background: $colorBlack;
+      opacity: 0.05;
+      left: 0;
+      margin-top: 30%;
+      // margin-right: 15px;
+      margin-left: 15px;
+      z-index: -1;
+   }
+}
+
+
+.trial-lesson__body {
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+
+   &::after {
+         content: '';
+         position: absolute;
+         width: 1300px;
+         height: 673px;
+         background: $colorWhite;
+         z-index: -1;
+         bottom: -25%;
+         left: -406px;
+      }
+   
+   form {
+      @include form();
+      margin-bottom: 30px;
+
+      &::before {
+         content: '';
+         position: absolute;
+         width: 228px;
+         height: 383px;
+         background: url('../assets/png/trial-lesson-collage.png') no-repeat;
+         bottom: 30px;
+         left: -157px;
+      }
+   }
+}
+
+.privacy-policy {
+   @include fontContent ($textAlign: left, $fontSize: 12px, $fontWeight: 100, $lh: 140%);
+   max-width: 220px;
+   margin-left: 250px;
+   margin-top: -5px;
+
+   a {
+      font-weight: 400;
+      text-decoration-line: underline;
+      color: $colorBlack;
+   }
+}
+
+.diagram {
+   margin-top: -18vh;
+      margin-right: 34px;
+}
+
+.diagram__canvas {
+   position: relative;
+
+   &::before {
+      content: '73%';
+      position: absolute;
+      z-index: 2;
+      padding: 20px;
+      top: 34%;
+      left: 14%;
+      @include fontTitle (50px, 500, center, 120%, $colorWhite)
+   }
+
+   &::after {
+      content: '26%';
+      position: absolute;
+      padding: 20px;
+      top: 34%;
+      right: 8%;
+      @include fontTitle (50px, 500, center, 120%, $colorWhite)
+   }
+}
+
+.chart__circle {
+   rotate: -30deg;
+}
+
+.unit {
+   fill: none;
+   stroke-width: 25;
+
+   &:nth-child(1) {
+      stroke: $colorYellow;
+      stroke-dasharray: 3 100;
+      stroke-dashoffset: 28.5;
+   }
+
+   &:nth-child(2) {
+      stroke: $colorBlack;
+      stroke-dasharray: 17 100;
+      stroke-dashoffset: 0;
+   }
+
+   &:nth-child(3) {
+      stroke: $accentColorRed;
+      stroke-dasharray: 55 100;
+      stroke-dashoffset: -18;
+   }
+}
+
+.diagram__legend {
+   margin-left: 60px;
+
+   p {
+      position: relative;
+      max-width: 280px;
+      margin-left: 30px;
+      @include fontContent($fontSize: 16px);
+
+      &:nth-child(1) {
+         &::before {
+            content: '';
+            position: absolute;
+            background: $colorBlack;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            top: 3px;
+            left: -35px;
+         }
+      }
+
+      &:nth-child(2) {
+         &::before {
+            content: '';
+            position: absolute;
+            background: $accentColorRed;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            top: 3px;
+            left: -35px;
+         }
+      }
+      
+      &:nth-child(3) {
+         &::before {
+            content: '';
+            position: absolute;
+            background: $colorYellow;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            top: 3px;
+            left: -35px;
+         }
+      }
+
+      &:not(:last-child) {
+         margin-bottom: 20px;
+      }
+   }
+}
+
+//-----------------------------> Reviews
+
+.reviews {
+   margin-bottom: 80px;
+}
+
+.reviews__head {
+   display: flex;
+   min-width: 0;
+
+   h2 {
+      max-width: 685px;
+      margin-top: 150px;
+   }
+}
+
+.swiper-container {
+   padding: 30px 0px;
+   overflow: hidden;
+   z-index: 2;
+   margin-top: -120px;
+}
+
+.swiper-slide {
+   max-width: 392px;
+   background: $colorWhite;
+   min-height: 450px;
+   padding: 25px 30px 30px 45px;
+   position: relative;
+
+   h3 {
+      @include fontTitle(24, 700, left, 120%);
+   }
+
+   &::before {
+      content: '';
+      width: 100px;
+      height: 100px;
+      background: url('../assets/svg/reviews-map.svg') no-repeat;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+   }
+}
+
+.review {
+   @include fontContent ();
+   color: #1C1C1C;
+}
+
+.reviewer {
+   @include fontContent ($lh: 140%);
+   color: $accentColorRed;
+   font-style: italic;
+}
+
+.reviewer-level {
+   position: absolute;
+   @include fontTitle (36px, 500, right, 100%, $accentColorRed);
+   display: inline-block;
+   right: 30px;
+   bottom: -13px;
+}
+
+.button-next {
+   padding: 15px;
+   position: relative;
+   outline: none;
+   border: none;
+   background: transparent;
+   margin-left: 30px;
+
+   span {
+      position: relative;
+      @include redElipse(45px, 40px, 12px 20px);
+      margin-left: 20px;
+      transition: $transition;
+
+      &::before {
+         content: '';
+         position: absolute;
+         background: url('../assets/svg/arrow-button.svg') no-repeat;
+         width: 41px;
+         height: 8px;
+         top: 15px;
+         right: 18px;
+         transition: $transition;
+      }
+   }
+
+   &:hover {
+      transition: $transition;
+
+      span {
+         transition: $transition;
+
+         &::before {
+            transition: $transition;
+         }
+      }
+   }
+
+   &:active {
+      span {
+         background: #960617;
+         transition: $transition;
+      }
+   }
+
+   &:disabled {
+      span {
+
+         @include redElipse(45px, 40px, 12px 20px, transparent);
+         outline: 1.5px solid $accentColorRed;
+      }
+   }
+}
+
+.button-prev {
+   padding: 15px;
+   position: relative;
+   outline: none;
+   border: none;
+   background: transparent;
+   margin-right: 40px;
+
+
+   span {
+      position: relative;
+      @include redElipse(45px, 40px, 12px 20px);
+      transition: $transition;
+
+      &::before {
+         content: '';
+         position: absolute;
+         background: url('../assets/svg/arrow-button.svg') no-repeat;
+         width: 41px;
+         height: 8px;
+         top: 15px;
+         left: 18px;
+         transition: $transition;
+         rotate: 180deg;
+      }
+   }
+
+   &:hover {
+      transition: $transition;
+
+      span {
+         transition: $transition;
+
+         &::before {
+            transition: $transition;
+         }
+      }
+   }
+
+   &:active {
+      span {
+         background: #960617;
+         transition: $transition;
+      }
+   }
+
+   &:disabled {
+      span {
+
+      @include redElipse(45px, 40px, 12px 20px, transparent);
+      outline: 1.5px solid $accentColorRed;
+      }
+   }
+}
+
+.reviews__navigation {
+   margin-top: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   // flex-direction: row;
+   // align-items: center;
+}
+
+.swiper-pagination {
+   width: 10%;
+   display: contents;
+   font-family: $familyCormorantGaramond;
+   font-weight: 300;
+   font-size: 27px;
+   line-height: 100%;
+   text-transform: uppercase;
+   font-feature-settings: 'pnum' on, 'lnum' on;
+   color: $colorBlack;
+}
+
+//-----------------------------> Registration
+
+.registration {
+   padding-bottom: 100px;
+}
+
+.registration__head {
+   display: flex;
+   justify-content: space-between;
+
+   h2 {
+      position: relative;
+
+      &::before {
+         content: '';
+         width: 115px;
+         height: 61px;
+         background: url('../assets/svg/advantages-wawes.svg') no-repeat;
+         position: absolute;
+         bottom: -18%;
+         left: -20px;
+      }
+   }
+}
+
+.registration__image {
+   position: relative;
+
+   &::before {
+      content: '';
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: url('../assets/svg/registration-elipse.svg') no-repeat;
+      z-index: -1;
+      animation: rotate 10s infinite linear;
+      top: -40px;
+      right: 50px;
+   }
+}
+
+.registration__body {
+   display: flex;
+   justify-content: space-between;
+   margin-top: -60px;
+
+   .privacy-policy {
+      margin-top: 30px;
+   }
+}
+
+.registration__form {
+   position: relative;
+
+   &::before {
+      content: '';
+      position: absolute;
+      width: 959px;
+      height: 350px;
+      background: $colorYellow;
+      top: 130px;
+      z-index: -1;
+   }
+}
+
+.form__body {
+   form {
+      @include form($colorWhite);
+      position: relative;
+
+      &::before {
+         content: '';
+         position: absolute;
+         width: 386px;
+         height: 210px;
+         background: url('../assets/png/registration-book.png') no-repeat;
+         z-index: -1;
+         top: 90px;
+         left: -260px;
+      }
+
+      button {
+         @include button($colorWhite);
+      }
+   }
+}
+
+#number-750 {
+   display: inline-block;
+   position: relative;
+   margin-right: 120px;
+   margin-top: 285px;
+
+   &::before {
+      content: 'человек обучаются немецкому языку прямо сейчас!';
+      position: absolute;
+      width: 175px;
+      background-color: $colorGray;
+      padding: 10px 10px;
+      top: -33px;
+      right: -120px;
+
+      @include fontContent(center);
+   }
+}
+
+//-----------------------------> Footer
+
+.footer {
+   background: $colorWhite;
+   padding: 20px;
+}
+
+.footer__container {
+   display: flex;
+   flex-direction: column;
+}
+
+.footer__body {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   ul {
+      display: flex;
+
+      li {
+         &:not(:last-child) {
+            margin-right: 40px;
+         }
+
+         a {
+            @include fontContent(center);
+            transition: $transition;
+
+            &:hover {
+               color: $accentColorRed;
+               transition: $transition;
+            } 
+         }
+      }
+   }
+}
+
+.footer__author {
+   display: flex;
+   align-items: center;
+
+   p {
+      @include fontContent();
+      
+      a {
+         margin-right: 30px;
+         color: $colorBlack;
+         transition: $transition;
+
+         &:hover {
+            transition: $transition;
+            color: $accentColorRed;
+         }
+      }
+   }
+}
