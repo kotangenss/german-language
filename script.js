@@ -22,6 +22,7 @@ new Swiper('.swiper-container',{
    //    sensitivity: 1,
    //    eventsTarget: '.swiper-slide',
    // },
+   autoHeight: true,
 
    slidesPerView: 3,
    slidesPerGroup: 1,
@@ -31,13 +32,13 @@ new Swiper('.swiper-container',{
    // loop: true,
 
    breakpoints: {
-      360: {
+      200: {
          slidesPerView: 1,
       },
-      480: {
+      801: {
          slidesPerView: 2,
       },
-      1150: {
+      1251: {
          slidesPerView: 3,
       },
    }
