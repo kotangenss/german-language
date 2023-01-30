@@ -25,6 +25,51 @@ body {
   margin: 0 auto;
 }
 
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #FFFFFF;
+  z-index: 1000;
+}
+
+.hide-preloader {
+  -webkit-animation: hidePreloader 1s;
+          animation: hidePreloader 1s;
+}
+
+.preloader-hidden {
+  display: none !important;
+}
+
+@-webkit-keyframes hidePreloader {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hidePreloader {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .container {
   padding: 0px 15px;
   max-width: 1216px;
@@ -1413,11 +1458,11 @@ h2 span {
   display: flex;
 }
 
-.a2,
-.b1,
-.b2,
-.c1,
-.c2 {
+#a2,
+#b1,
+#b2,
+#c1,
+#c2 {
   display: none;
 }
 
@@ -1734,6 +1779,17 @@ h2 span {
     margin-bottom: 30px;
   }
 }
+@media (min-width: 901px) {
+  .level:hover {
+    cursor: pointer;
+    background: #DE122B;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .level:hover p {
+    color: #FFFFFF;
+  }
+}
 @media (max-width: 900px) {
   .programs h2 {
     color: #000000;
@@ -1778,10 +1834,10 @@ h2 span {
     width: 100%;
   }
   .level {
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -1803,8 +1859,115 @@ h2 span {
     -webkit-user-select: none;
     user-select: none;
   }
-  .level:hover {
-    display: none;
+  .level .info__grammar p {
+    font-family: "Roboto";
+    font-weight: 100;
+    font-size: 15px;
+    line-height: 130%;
+    color: #000000;
+    text-align: left;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    text-transform: none;
+  }
+  .level .description a {
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 140%;
+    text-transform: uppercase;
+    color: #000000;
+    position: relative;
+    padding: 5px 0px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    text-transform: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .level .description a span {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #DE122B;
+    padding: 10px 20px;
+    margin-left: 30px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .level .description a span::before {
+    content: "";
+    position: absolute;
+    background: url("../assets/svg/arrow-button.svg") no-repeat;
+    width: 41px;
+    height: 8px;
+    top: 15px;
+    right: 18px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .level .description a:hover {
+    outline: 1px solid #DE122B;
+    background: #F3F3F3;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .level .description a:hover span {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .level .description a:hover span::before {
+    rotate: -180deg;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .level .description a:active {
+    outline: 1px solid #e0e0e0;
+    background-color: #e0e0e0;
+  }
+  .level .description a span::before {
+    rotate: 0deg;
+    width: 45px;
+    height: 13px;
+    border: 0;
+    margin-top: 1px;
+  }
+  .level .description__goal p {
+    font-family: "Roboto";
+    font-weight: 100;
+    font-size: 15px;
+    line-height: 130%;
+    color: #000000;
+    text-align: left;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    text-transform: none;
+  }
+  .level .description__price p {
+    font-family: "Roboto";
+    font-weight: 100;
+    font-size: 17px;
+    line-height: 130%;
+    color: #000000;
+    text-align: left;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    text-transform: none;
   }
   .level__arrow {
     display: inline-block;
@@ -1828,6 +1991,7 @@ h2 span {
     background: #DE122B;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    padding-bottom: 30px;
   }
   .active-level p {
     color: #FFFFFF;
@@ -1848,17 +2012,20 @@ h2 span {
     height: 15px;
     border-left: 2px solid #FFFFFF;
     border-bottom: 2px solid #FFFFFF;
-    rotate: -45deg;
+    rotate: 135deg;
+    margin-top: 5px;
   }
   .table__body {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    display: none;
+  }
+  .level__content {
     max-height: 0;
     overflow: hidden;
     -webkit-transition: max-height 0.2s ease-out;
     transition: max-height 0.2s ease-out;
+  }
+  .level__content-active {
+    max-height: 2350px;
   }
   .table__description {
     padding: 20px 30px 25px;
@@ -1962,7 +2129,10 @@ h2 span {
     color: #DE122B;
   }
   .level {
-    padding: 0px 15px 0px 30px;
+    padding: 0px 15px 0px 15px;
+  }
+  .active-level {
+    padding-bottom: 15px;
   }
 }
 @media (max-width: 480px) {
@@ -1984,6 +2154,9 @@ h2 span {
   }
   .programs h2 span {
     color: #DE122B;
+  }
+  .table__grammar h3 {
+    line-height: 130%;
   }
 }
 .trial-lesson {
@@ -2112,6 +2285,9 @@ h2 span {
   max-height: 380px;
   margin-left: 150px;
   margin-bottom: 30px;
+  position: relative;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 .trial-lesson__body form input {
   width: 360px;
@@ -2225,6 +2401,102 @@ h2 span {
   background: url("../assets/png/trial-lesson-collage.png") no-repeat;
   bottom: 30px;
   left: -157px;
+}
+.trial-lesson__body form input {
+  position: relative;
+  -webkit-box-shadow: inset 0 0 0 50px #fff;
+          box-shadow: inset 0 0 0 50px #fff;
+}
+.trial-lesson__body form input::-webkit-input-placeholder {
+  opacity: 0.5;
+}
+.trial-lesson__body form input::-moz-placeholder {
+  opacity: 0.5;
+}
+.trial-lesson__body form input:-ms-input-placeholder {
+  opacity: 0.5;
+}
+.trial-lesson__body form input::-ms-input-placeholder {
+  opacity: 0.5;
+}
+.trial-lesson__body form input::placeholder {
+  opacity: 0.5;
+}
+.trial-lesson__body form #number-trial,
+.trial-lesson__body form #name-trial {
+  margin-bottom: 30px;
+}
+.trial-lesson__body form .application-sent {
+  position: absolute;
+  background: #F3F3F3;
+  padding: 60px 60px 130px 60px;
+  top: 45px;
+  left: 52px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: -1;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.trial-lesson__body form .application-sent p {
+  font-family: "Cormorant Garamond";
+  max-width: 250px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 119%;
+  color: #1C1C1C;
+  margin-top: -6px;
+}
+
+.form-warning {
+  color: #DE122B;
+  margin-top: 40px;
+  font-family: "Roboto";
+  position: absolute;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#number-registration-text-error,
+#warning-registration {
+  z-index: -1;
+}
+
+.text-error {
+  margin-top: -65px;
+  padding: 15px 0px;
+  line-height: 130%;
+  color: #DE122B;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.text-valide {
+  margin-top: -25px;
+  padding: 15px 0px;
+  line-height: 130%;
+  color: #DE122B;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.error-input {
+  border: 2px solid #de112a !important;
+  background: rgb(243, 243, 243);
+}
+
+.valide-input {
+  background: #FFFFFF;
 }
 
 .diagram {
@@ -2425,13 +2697,15 @@ h2 span {
     position: relative;
     background: #F3F3F3;
     padding: 40px 60px 40px;
-    width: 100%;
-    max-height: 350px;
-    margin-left: 40px;
+    width: 350px;
+    max-height: 380px;
+    margin-left: 150px;
     margin-bottom: 30px;
+    margin-left: 40px;
+    width: 100%;
   }
   .trial-lesson__body form input {
-    width: 100%;
+    width: 360px;
     height: 50px;
     background: white;
     border: 1px solid #000000;
@@ -2534,8 +2808,15 @@ h2 span {
     outline: 1px solid #e0e0e0;
     background-color: #e0e0e0;
   }
+  .trial-lesson__body form input {
+    width: 100%;
+    height: 50px;
+  }
   .trial-lesson__body form::before {
     display: none;
+  }
+  .application-sent {
+    width: 90%;
   }
   .diagram__canvas {
     position: relative;
@@ -2693,13 +2974,14 @@ h2 span {
     position: relative;
     background: #F3F3F3;
     padding: 40px 60px 40px;
+    width: 350px;
+    max-height: 380px;
+    margin-left: 150px;
+    margin: 0px 0px 30px 25px;
     width: 95%;
-    max-height: 350px;
-    margin-left: 15px;
-    margin-bottom: 30px;
   }
   .trial-lesson__body form input {
-    width: 100%;
+    width: 360px;
     height: 50px;
     background: white;
     border: 1px solid #000000;
@@ -2802,6 +3084,10 @@ h2 span {
     outline: 1px solid #e0e0e0;
     background-color: #e0e0e0;
   }
+  .trial-lesson__body form input {
+    width: 100%;
+    height: 50px;
+  }
   .diagram {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2815,6 +3101,9 @@ h2 span {
             flex-direction: row;
     margin-top: 80px;
     margin-right: 34px;
+  }
+  .application-sent {
+    top: 35px;
   }
 }
 @media (max-width: 700px) {
@@ -2833,13 +3122,14 @@ h2 span {
     position: relative;
     background: #F3F3F3;
     padding: 40px 60px 40px;
+    width: 350px;
+    max-height: 380px;
+    margin-left: 150px;
+    margin: 0px 0px 30px 3%;
     width: 95%;
-    max-height: 350px;
-    margin-left: 15px;
-    margin-bottom: 30px;
   }
   .trial-lesson__body form input {
-    width: 100%;
+    width: 360px;
     height: 50px;
     background: white;
     border: 1px solid #000000;
@@ -2941,6 +3231,17 @@ h2 span {
   .trial-lesson__body form button:active {
     outline: 1px solid #e0e0e0;
     background-color: #e0e0e0;
+  }
+  .trial-lesson__body form input {
+    width: 100%;
+  }
+  .trial-lesson__body form .application-sent {
+    padding: 70px 15px 130px 15px;
+    top: 17px;
+    left: 5%;
+  }
+  .trial-lesson__body form .application-sent a {
+    padding: 15px 0px;
   }
   .trial-lesson__container .privacy-policy {
     width: 100%;
@@ -3039,6 +3340,9 @@ h2 span {
   .diagram__canvas {
     margin-bottom: 15px;
   }
+  .text-error {
+    margin-top: -77px;
+  }
 }
 @media (max-width: 480px) {
   .trial-lesson h2::before {
@@ -3053,8 +3357,11 @@ h2 span {
     bottom: 0.9em;
     right: 0.5em;
   }
+  .trial-lesson h3 {
+    line-height: 130%;
+  }
   .trial-lesson__container .privacy-policy {
-    margin-top: -455px;
+    margin-top: -465px;
     margin-bottom: 365px;
   }
   .trial-lesson__body {
@@ -3079,13 +3386,14 @@ h2 span {
     position: relative;
     background: #F3F3F3;
     padding: 30px 40px 20px;
-    width: 95%;
-    max-height: 350px;
-    margin-left: 15px;
-    margin-bottom: 30px;
+    width: 350px;
+    max-height: 380px;
+    margin-left: 150px;
+    margin: 0px 0px 30px 3%;
+    width: 95% !important;
   }
   .trial-lesson__body form input {
-    width: 100%;
+    width: 360px;
     height: 50px;
     background: white;
     border: 1px solid #000000;
@@ -3188,8 +3496,35 @@ h2 span {
     outline: 1px solid #e0e0e0;
     background-color: #e0e0e0;
   }
+  .trial-lesson__body form .application-sent {
+    padding: 68px 20px 88px 20px;
+    top: 0;
+    left: 5%;
+  }
+  .trial-lesson__body form .application-sent p {
+    max-width: 250px;
+    font-size: 28px;
+    line-height: 119%;
+    color: #1C1C1C;
+    margin-top: -6px;
+  }
+  .trial-lesson__body form .application-sent a {
+    font-size: 13px;
+    margin-top: -18px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
   .trial-lesson__body form input {
     height: 40px;
+    width: 100%;
   }
   .trial-lesson__body form button {
     font-family: "Roboto";
@@ -3247,6 +3582,13 @@ h2 span {
   .trial-lesson__body form button:active {
     outline: 1px solid #e0e0e0;
     background-color: #e0e0e0;
+  }
+  .text-error,
+.form-warning {
+    font-size: 10px;
+  }
+  .text-error {
+    margin-top: -77px;
   }
 }
 .reviews {
@@ -3761,6 +4103,8 @@ h2 span {
   max-height: 380px;
   margin-left: 150px;
   position: relative;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 .form__body form input {
   width: 360px;
@@ -3876,6 +4220,25 @@ h2 span {
   top: 90px;
   left: -260px;
 }
+.form__body form input {
+  -webkit-box-shadow: inset 0 0 0 50px #fff;
+          box-shadow: inset 0 0 0 50px #fff;
+}
+.form__body form input::-webkit-input-placeholder {
+  opacity: 0.5;
+}
+.form__body form input::-moz-placeholder {
+  opacity: 0.5;
+}
+.form__body form input:-ms-input-placeholder {
+  opacity: 0.5;
+}
+.form__body form input::-ms-input-placeholder {
+  opacity: 0.5;
+}
+.form__body form input::placeholder {
+  opacity: 0.5;
+}
 .form__body form button {
   font-family: "Roboto";
   font-weight: 300;
@@ -3932,6 +4295,41 @@ h2 span {
 .form__body form button:active {
   outline: 1px solid #e0e0e0;
   background-color: #e0e0e0;
+}
+.form__body form #name-registration,
+.form__body form #number-registration {
+  margin-bottom: 30px;
+}
+.form__body form .application-sent {
+  position: absolute;
+  background: #FFFFFF;
+  padding: 60px 60px 130px 60px;
+  top: 45px;
+  left: 52px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: -1;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.form__body form .application-sent p {
+  font-family: "Cormorant Garamond";
+  max-width: 250px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 119%;
+  color: #1C1C1C;
+  margin-top: -6px;
 }
 
 #number-750 {
@@ -4015,12 +4413,14 @@ h2 span {
     position: relative;
     background: #FFFFFF;
     padding: 40px 60px 40px;
-    width: 100%;
-    max-height: 350px;
+    width: 564px;
+    max-height: 380px;
+    margin-left: 150px;
     margin-left: 0px;
+    width: 95%;
   }
   .form__body form input {
-    width: 100%;
+    width: 360px;
     height: 50px;
     background: white;
     border: 1px solid #000000;
@@ -4123,8 +4523,17 @@ h2 span {
     outline: 1px solid #e0e0e0;
     background-color: #e0e0e0;
   }
+  .form__body form input {
+    width: 100%;
+    height: 50px;
+  }
   .form__body form::before {
     display: none;
+  }
+  .form__body form .application-sent {
+    padding: 60px 15px 130px 19px;
+    top: 45px;
+    left: 5%;
   }
 }
 @media (max-width: 900px) {
@@ -4157,7 +4566,7 @@ h2 span {
     max-width: 450px;
     text-align: center;
     margin: 0 auto;
-    padding-top: 30px;
+    padding-top: 0px;
   }
   .registration__form::before {
     width: 120%;
@@ -4165,6 +4574,130 @@ h2 span {
     left: -30px;
     top: 130px;
     z-index: -1;
+  }
+  .registration__form .form__body form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+    background: #FFFFFF;
+    padding: 40px 60px 40px;
+    width: 350px;
+    max-height: 380px;
+    margin-left: 150px;
+    margin: 0px 0px 30px 3%;
+    width: 95%;
+  }
+  .registration__form .form__body form input {
+    width: 360px;
+    height: 50px;
+    background: white;
+    border: 1px solid #000000;
+    border-radius: 0%;
+    padding: 15px;
+    outline: none;
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 130%;
+    color: #000000;
+    text-align: left;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .registration__form .form__body form input:focus {
+    border: 2px solid #000000;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .registration__form .form__body form label {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 130%;
+    color: #000000;
+    text-align: left;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    margin-bottom: 10px;
+  }
+  .registration__form .form__body form #name-form {
+    margin-bottom: 20px;
+  }
+  .registration__form .form__body form #number-form {
+    margin-bottom: 40px;
+  }
+  .registration__form .form__body form button {
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 140%;
+    text-transform: uppercase;
+    color: #000000;
+    position: relative;
+    padding: 15px 15px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    background: transparent;
+    border: 0;
+  }
+  .registration__form .form__body form button span {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #DE122B;
+    padding: 10px 20px;
+    margin-left: 30px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .registration__form .form__body form button span::before {
+    content: "";
+    position: absolute;
+    background: url("../assets/svg/arrow-button.svg") no-repeat;
+    width: 41px;
+    height: 8px;
+    top: 15px;
+    right: 18px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .registration__form .form__body form button:hover {
+    outline: 1px solid #DE122B;
+    background: #F3F3F3;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .registration__form .form__body form button:hover span {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .registration__form .form__body form button:hover span::before {
+    rotate: -180deg;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .registration__form .form__body form button:active {
+    outline: 1px solid #e0e0e0;
+    background-color: #e0e0e0;
+  }
+  .registration__form .form__body form input {
+    width: 100%;
   }
   #number-750 {
     margin-right: 0px;
@@ -4198,6 +4731,95 @@ h2 span {
     padding-bottom: 80px;
   }
 }
+@media (max-width: 560px) {
+  .form__body form .application-sent {
+    padding: 83px 20px 134px 20px;
+    top: 0;
+    left: 5%;
+  }
+  .form__body form .application-sent p {
+    max-width: 250px;
+    font-size: 28px;
+    line-height: 119%;
+    color: #1C1C1C;
+    margin-top: -6px;
+  }
+  .form__body form .application-sent a {
+    font-size: 13px;
+    margin-top: -18px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 15px 0px;
+  }
+  .form__body form input {
+    height: 40px;
+  }
+  .form__body form button {
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 140%;
+    text-transform: uppercase;
+    color: #000000;
+    position: relative;
+    padding: 15px 0px !important;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .form__body form button span {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #DE122B;
+    padding: 10px 20px;
+    margin-left: 30px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .form__body form button span::before {
+    content: "";
+    position: absolute;
+    background: url("../assets/svg/arrow-button.svg") no-repeat;
+    width: 41px;
+    height: 8px;
+    top: 15px;
+    right: 18px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .form__body form button:hover {
+    outline: 1px solid #DE122B;
+    background: #F3F3F3;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .form__body form button:hover span {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .form__body form button:hover span::before {
+    rotate: -180deg;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .form__body form button:active {
+    outline: 1px solid #e0e0e0;
+    background-color: #e0e0e0;
+  }
+}
 @media (max-width: 480px) {
   .form__body form {
     display: -webkit-box;
@@ -4209,14 +4831,15 @@ h2 span {
             flex-direction: column;
     position: relative;
     background: #FFFFFF;
-    padding: 30px 40px 20px;
-    width: 95%;
-    max-height: 350px;
-    margin-left: 15px;
+    padding: 30px 40px 20px !important;
+    width: 350px;
+    max-height: 380px;
+    margin-left: 150px;
     margin-bottom: 30px;
+    margin-left: 15px;
   }
   .form__body form input {
-    width: 100%;
+    width: 360px;
     height: 50px;
     background: white;
     border: 1px solid #000000;
@@ -4319,18 +4942,44 @@ h2 span {
     outline: 1px solid #e0e0e0;
     background-color: #e0e0e0;
   }
+  .form__body form .application-sent {
+    padding: 83px 20px 88px 20px;
+    top: 0;
+    left: 5%;
+  }
+  .form__body form .application-sent p {
+    max-width: 250px;
+    font-size: 28px;
+    line-height: 119%;
+    color: #1C1C1C;
+    margin-top: -6px;
+  }
+  .form__body form .application-sent a {
+    font-size: 13px;
+    margin-top: -18px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
   .form__body form input {
     height: 40px;
   }
   .form__body form button {
     font-family: "Roboto";
     font-weight: 300;
-    font-size: 14px;
+    font-size: 17px;
     line-height: 140%;
     text-transform: uppercase;
     color: #000000;
     position: relative;
-    padding: 15px 15px;
+    padding: 15px 0px !important;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     -ms-user-select: none;
@@ -4381,7 +5030,7 @@ h2 span {
   }
   .registration__form .privacy-policy {
     max-width: 280px;
-    margin-top: -20px;
+    margin-top: 0px;
   }
   #number-750 {
     margin-right: 50px;
