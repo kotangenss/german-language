@@ -1,0 +1,154 @@
+@mixin fontTitle ($fontSize: 100px, $fontWeight: 300, $textAlign: center, $lineHeight: 100%, $color: $colorBlack, $maxWidth: 900px) {
+   color: $color;
+   font-family: $familyCormorantGaramond;
+   font-size: $fontSize;
+   font-weight: $fontWeight;
+   line-height: $lineHeight;
+   text-transform: uppercase;
+   text-align: $textAlign;
+   max-width: $maxWidth;
+   font-feature-settings: 'pnum' on, 'lnum' on;
+   -ms-user-select: none;
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+
+   span {
+      color: $accentColorRed;
+   }
+}
+
+@mixin fontSubTitle($fontSize: 18px, $lineHeight: 140%) {
+   font-family: $familyRoboto;
+   font-weight: 500;
+   font-size: $fontSize;
+   line-height: $lineHeight;
+   text-transform: uppercase;
+   color: $colorBlack;
+   -ms-user-select: none;
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+}
+
+@mixin fontContent ($textAlign: left, $fontSize: $contentFontSize, $fontWeight: 100, $lh: 130%) {
+   font-family: $familyRoboto;
+   font-weight: $fontWeight;
+   font-size: $fontSize;
+   line-height: $lh;
+   color: $colorBlack;
+   text-align: $textAlign;
+   -ms-user-select: none;
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+}
+
+@mixin redElipse($width: 40px, $height: 40px, $padding: 10px 20px, $bg: $accentColorRed) {
+   width: $width;
+   height: $height;
+   border-radius: 50%;
+   background: $bg;
+   padding: $padding;
+}
+
+@mixin button($hoverBackground: $colorGray, $fontSize: $contentFontSize, $padding: 15px 15px) {
+   font-family: $familyRoboto;
+   font-weight: 300;
+   font-size: $fontSize;
+   line-height: 140%;
+   text-transform: uppercase;
+   color: $colorBlack;
+   position: relative;
+   padding: $padding;
+   transition: $transition;
+   -ms-user-select: none;
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+
+   span {
+      position: relative;
+      @include redElipse();
+      margin-left: 30px;
+      transition: $transition;
+
+      &::before {
+         content: '';
+         position: absolute;
+         background: url('../assets/svg/arrow-button.svg') no-repeat;
+         width: 41px;
+         height: 8px;
+         top: 15px;
+         right: 18px;
+         transition: $transition;
+      }
+   }
+
+   &:hover {
+      outline: 1px solid $accentColorRed;
+      background: $hoverBackground;
+      transition: $transition;
+
+      span {
+         transition: $transition;
+
+         &::before {
+            rotate: -180deg;
+            transition: $transition;
+         }
+      }
+   }
+
+   &:active {
+      outline: 1px solid #e0e0e0;
+      background-color: #e0e0e0;
+   }
+}
+
+@mixin form($background: $colorGray, $padding: 55px 100px 50px, $width: 564px, $maxHeight: 380px, $marginLeft: 150px, $widthInput: 360px, $heightInput: 50px) {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   background: $background;
+   padding: $padding;
+   width: $width;
+   max-height: $maxHeight;
+   margin-left: $marginLeft;
+
+   input {
+      width: $widthInput;
+      height: $heightInput;
+      background: white;
+      border: 1px solid $colorBlack;
+      border-radius: 0%;
+      padding: 15px;
+      outline: none;
+      @include fontContent ($textAlign: left, $fontSize: $contentFontSize, $fontWeight: 300);
+      transition: $transition;
+
+      &:focus {
+         border: 2px solid $colorBlack;
+         transition: $transition;
+      }
+   }
+
+   label {
+      @include fontContent ($textAlign: left, $fontSize: $contentFontSize, $fontWeight: 400);
+      margin-bottom: 10px;
+   }
+
+   #name-form {
+      margin-bottom: 20px;
+   }
+
+   #number-form {
+      margin-bottom: 40px;
+   }
+
+   button {
+      @include button();
+      background: transparent;
+      border: 0;
+   }
+}
