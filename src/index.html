@@ -6,9 +6,9 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>D-Lingv</title>
-   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-   <link href="css/style.css" rel="stylesheet">
-   <link href="css/normalize.css" rel="stylesheet">
+   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+   <!-- <link href="../src/css/style.css" rel="stylesheet"> -->
+   <!-- <link href="../src/css/normalize.css" rel="stylesheet"> -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link
@@ -19,7 +19,7 @@
 
 <body>
    <div id="preloader">
-      <img src="./assets/gif/elipse.gif" alt="">
+      <img src=<%=require("./assets/gif/elipse.gif")%> alt="">
    </div>
    <div class="wrapper">
       <header class="header" id="header">
@@ -34,7 +34,7 @@
          <section class="welcome" id="welcome">
             <div class="welcome__container container">
                <div class="welcome__image">
-                  <img src="./assets/png/woman.png" alt="woman student">
+                  <img src=<%=require("./assets/png/woman.png")%> alt="woman student">
                </div>
                <div class="welcome__info">
                   <h1><span>Н</span>емецкий язык</h1>
@@ -49,7 +49,7 @@
          <section class="advantage" id="advantage">
             <div class="advantage__container container">
                <div class="advantage__image">
-                  <img src="./assets/svg/advantages-img.svg" alt="collage image">
+                  <img src=<%=require("./assets/svg/advantages-img.svg")%> alt="collage image">
                </div>
                <h2><span>Ч</span>то мы предлагаем</h2>
                <div class="advantages__items">
@@ -110,7 +110,7 @@
             <div class="programs__container container">
                <div class="programs__head">
                   <div class="programs__head-image">
-                     <img src="./assets/svg/programs-rectangle.svg" alt="red rectangle">
+                     <img src=<%=require("./assets/svg/programs-rectangle.svg")%> alt="red rectangle">
                   </div>
                   <h2><span>П</span>рограммы и&nbsp;стоимость</h2>
                </div>
@@ -840,7 +840,8 @@
                      <label for="number-trial">Номер телефона</label>
                      <input oninput="changeInputTrialLesson()" id="number-trial" type="tel" name="entry.2098300367"
                         aria-describedby="i.desc.62580104 i.err.62580104" placeholder="+78005553535">
-                        <span id="number-trial-text-error" class="text-error">Введите номер телефона в формате +78005553535</span>
+                     <span id="number-trial-text-error" class="text-error">Введите номер телефона в формате
+                        +78005553535</span>
                      <button href="#">отправить <span></span></button>
                      <div class="application-sent" id="pop-up-trial-lesson">
                         <p>Заявка успешно отправлена!</p>
@@ -871,7 +872,7 @@
             <div class="reviews__container container">
                <div class="reviews__head">
                   <div class="reviews__image">
-                     <img src="./assets/png/reviews-people.png" alt="happy people">
+                     <img src=<%=require("./assets/png/reviews-people.png")%> alt="happy people">
                   </div>
                   <h2><span>О</span>тзывы учеников</h2>
                </div>
@@ -1086,7 +1087,7 @@
                <div class="registration__head">
                   <h2><span>З</span>аписаться на&nbsp;курс</h2>
                   <div class="registration__image">
-                     <img src="./assets/png/registration-collage.png" alt="collage">
+                     <img src=<%=require("./assets/png/registration-collage.png")%> alt="collage">
                   </div>
                </div>
                <div class="registration__body">
@@ -1100,12 +1101,15 @@
                            method="post" target="hidden_iframe2" onsubmit="submitted=true;">
                            <span id="warning-registration" class="form-warning">Пожалуйста, заполните оба поля</span>
                            <label for="name-registration">Имя</label>
-                           <input oninput="changeInputRegistrationName()" id="name-registration" type="text" name="entry.827470717"
-                              aria-describedby="i.desc.2056322261 i.err.2056322261" placeholder="Иван Иванов">
+                           <input oninput="changeInputRegistrationName()" id="name-registration" type="text"
+                              name="entry.827470717" aria-describedby="i.desc.2056322261 i.err.2056322261"
+                              placeholder="Иван Иванов">
                            <label for="number-registration">Номер телефона</label>
-                           <input oninput="changeInputRegistration()" id="number-registration" type="tel" name="entry.2098300367"
-                              aria-describedby="i.desc.62580104 i.err.62580104" placeholder="+78005553535">
-                           <span id="number-registration-text-error" class="text-error">Введите номер телефона в формате +78005553535</span>
+                           <input oninput="changeInputRegistration()" id="number-registration" type="tel"
+                              name="entry.2098300367" aria-describedby="i.desc.62580104 i.err.62580104"
+                              placeholder="+78005553535">
+                           <span id="number-registration-text-error" class="text-error">Введите номер телефона в формате
+                              +78005553535</span>
                            <button href="#">отправить <span></span></button>
                            <div class="application-sent" id="pop-up-registration">
                               <p>Заявка успешно отправлена!</p>
@@ -1149,7 +1153,6 @@
       </footer>
    </div>
    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-   <script src="./script.js"></script>
 </body>
 
 </html>
