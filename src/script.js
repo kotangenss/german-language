@@ -1,11 +1,11 @@
+import '../src/css/style.css'
+import '../src/css/normalize.css'
 
 window.onload = function () {
    let preloader = document.getElementById('preloader');
    preloader.classList.add('hide-preloader');
 
-   // setInterval(function () {
    preloader.classList.add('preloader-hidden');
-   // }, 990);
 }
 
 new Swiper('.swiper-container', {
@@ -28,18 +28,12 @@ new Swiper('.swiper-container', {
       pageUpDown: true,
    },
 
-   // mouseWheel: {
-   //    sensitivity: 1,
-   //    eventsTarget: '.swiper-slide',
-   // },
    autoHeight: true,
 
    slidesPerView: 3,
    slidesPerGroup: 1,
    watchOverflow: true,
    spaceBetween: 30,
-   // loopedSlides: 3,
-   // loop: true,
 
    breakpoints: {
       200: {
@@ -54,35 +48,11 @@ new Swiper('.swiper-container', {
    }
 });
 
-// let pageSlider = new Swiper('.page', {
-//    wrapperClass: 'page__wrapper',
-//    slideClass: 'page__screen',
-//    direction: 'vertical',
-//    slidesPerView: 'auto',
-//    parallax: true,
-
-//    mouseWheel: {
-//       sensitivity: 1,
-//       // eventsTarget: '.swiper-slide',
-//    },
-
-//    observer: true,
-//    observeParents: true,
-//    observeSlideChildren: true,
-
-//    scrollbar: {
-//       el: 'page__scroll',
-//       dragClass: 'page__drag-scroll',
-//    },
-// });
-
-
 // Переключение программ 
 
 const levels = [...document.querySelectorAll('.level')];
 const tableBodies = [...document.querySelectorAll('.table__body')];
 const levelContent = [...document.querySelectorAll('.level__content')];
-// let isActiveLevel = false;
 
 if (window.matchMedia("(max-width: 900px)").matches) {
    levels.forEach(e => {
@@ -104,9 +74,7 @@ levels.forEach(el => {
             })
 
             el.classList.toggle('active-level');
-            // console.log(el.firstElementChild.lastElementChild)
             el.lastElementChild.classList.toggle('level__content-active');
-            // el.firstElementChild.lastElementChild.style.rotate = '-45deg';
          } else {
             levels.forEach(e => {
                e.classList.remove('active-level');
@@ -115,8 +83,6 @@ levels.forEach(el => {
             levelContent.forEach(e => {
                e.classList.remove('level__content-active');
             })
-
-            // el.firstElementChild.lastElementChild.style.rotate = '180deg';
          }
 
 
@@ -187,8 +153,6 @@ buttonPopUpTrialLesson.addEventListener("click", function (e) {
    document.getElementById("name-trial").value = "";
    document.getElementById("number-trial").value = "";
 })
-
-
 
 function showPopUpRegistration() {
    let valueNameRegistration = document.getElementById('name-registration').value;
